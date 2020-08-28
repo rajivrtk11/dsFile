@@ -12,6 +12,7 @@ class Main{
             System.out.println(path);
             return 1;
         }
+        
         int count = 0;
         count += function(arr,sx+1,sy,dx,dy,path+'H');
         count += function(arr,sx,sy+1,dx,dy,path+'V');
