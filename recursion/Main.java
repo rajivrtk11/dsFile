@@ -1,6 +1,36 @@
+import java.util.ArrayList;
 public class Main{
-    //=========================================================================================
-    
+
+    static void StringCompare(){
+        String s1 = "abcd";
+        String s2 = "acd";
+        boolean val = s1.equals(s2);
+        System.out.println(val);
+    }
+    //==================================SubSequence genearation=======================================================
+     static ArrayList<String> SubSequence(String str, int idx){
+          // base
+          if(idx == str.length()){
+              ArrayList<String> al = new ArrayList<>();
+              al.add(" ");
+              return al;
+          }
+
+          // call 
+          ArrayList<String> smallAns = SubSequence(str, idx+1);
+          ArrayList<String> myAns = new ArrayList<>();
+          for(String s : smallAns){
+              myAns.add(s);
+              myAns.add(str.charAt(idx)+s);
+          }
+          return myAns;
+      }
+    //-------------------------------------------------------------------------------------------------
+     static void callSubSeq(){
+        System.out.println(SubSequence("abc",0));
+     }
+
+
     //================================count using recursion=========================================================
     public static int count(int n){
         if(n == 1) return n;
@@ -49,7 +79,9 @@ public class Main{
         // call calling function of void type
         //fibCall();
         //factCall();
-        count();
+        //count();
+        //callSubSeq();
+        StringCompare();
     }
     //=========================================================================================
     public static void main(String[] args){

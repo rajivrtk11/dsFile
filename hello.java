@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 class hello{
      public static void subArray(int[] arr){
         for(int i = 0; i < arr.length; i++){
@@ -12,9 +14,20 @@ class hello{
     public static void main(String[] args){
         /* int arr[] = {20,8,3,4,9,5};
         subArray(arr); */
-        char ch = 'a';
+        // char ch = 'a';
+        // for(int i = 0; i < 5; i++){
+        //     System.out.println(ch++);
+        // }
+
+        Scanner scn = new Scanner(new InputStreamReader(System.in));
+        
+        int arr[] = new int[5];
         for(int i = 0; i < 5; i++){
-            System.out.println(ch++);
+            arr[i] = scn.nextInt();
         }
-    }
+        for(int i = 0; i < 5; i++){
+            System.out.print(arr[i]+" ");
+        }
+
+        }
 }

@@ -33,6 +33,8 @@ bool isSafeToPlaceNumber(int r, int c, int num)
     {
         if (board[i][c] == num)
             return false;
+            
+            
     }
 
     //Col
