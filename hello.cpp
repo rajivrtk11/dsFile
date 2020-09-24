@@ -26,8 +26,7 @@ int main() {
             if (tmp != -1) {
                 (tmp == 0 ? zer : one)++;
             }
-        }
-        if (max(zer, one) > k / 2) {
+        }        if (max(zer, one) > k / 2) {
             chk = false;
         }
         cout << (chk ? "YES\n" : "NO\n");
