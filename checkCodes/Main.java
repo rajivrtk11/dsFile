@@ -124,13 +124,76 @@
         }
 
     }
+    //================================================bottom view=================================================
+    public static void topView(Node root){
+        int coor[] = new int[2];
+        width(root,0,coor);
+        int ans[] = new int[coor[1]-coor[0]];
+        
+        LinkedList<pair> que = new LinkedList<>();
+        que.add(new pair(root,-coor[0]));
+        while(que.size() != 0){
+            int size = que.size();
+            while(size-- > 0){
+                pair vtx = que.remove();
+                ans[vtx.val] = vtx.node.data;
+                if(vtx.node.left != null) que.add(new pair(vtx.node.left, vtx.val-1));
+                if(vtx.node.right != null) que.add(new pair(vtx.node.right, vtx.val+1));
+            }
+        }
+        for(int i = 0; i < ans.length; i++){
+            System.out.println(ans[i]);
+        }
+
+    }
+
+    //================================================leetcode 987=================================================
+    /* public static void virTrav(Node root){
+        int coor[] = new int[2];
+        width(root,0,coor);
+        ArrayList<Integer> ans[] = new ArrayList[coor[1]-coor[0]];
+        for(int i = 0; i < ans.length; i++){
+            ans[i] = new ArrayList<>();
+        }
+        PriorityQueue<pair> que = new PriorityQueue<>( (a,b)->{
+             return a.x-b.x;
+            //else if(a.x == b.x) return a.node.val - b.node.val;
+        });
+        que.add(new pair(root,-coor[0]));
+        while(que.size() != 0){
+            int size = que.size();
+            while(size-- > 0){
+                pair vtx = que.remove();
+                ans[vtx.val].add(vtx.node.data);
+                if(vtx.node.left != null) que.add(new pair(vtx.node.left, vtx.val-1));
+                if(vtx.node.right != null) que.add(new pair(vtx.node.right, vtx.val+1));
+            }
+        }
+        for(int i = 0; i < ans.length; i++){
+            System.out.println(ans[i]);
+        }
+    } */
+    //================================================size of binary tree=================================================
+    public static int size(Node node){
+        // return node == null? 0: size(node.left)+size(node.right)+1;
+        if(node == null ){
+            return 0;
+        }
+        int lh = size(node.left);
+        int rh = size(node.right);
+        return lh+rh+1;
+    }
+
     public static void solve(){
         int[] arr={10,20,40,80,-1,-1,90,100,-1,-1,-1,50,-1,-1,30,60,110,120,-1,-1,140,-1,-1,-1,70,-1,-1};
         //int idx = 0;
         Node root = construct(arr);
         //callDiagonalView(root);
         //virticalTraversal(root);
-        virticalTraversal_2(root);
+        //virticalTraversal_2(root);
+        //topView(root);
+        //virTrav(root);
+        System.out.println(size(root));
     }
 
     public static void main(String[] args){

@@ -1,0 +1,5 @@
+rno = 2 ht=18 wt = 85 
+rno = 7 ht=182 wt = 82 
+rno = 10 ht=180 wt = 81 
+rno = 12 ht=170 wt = 84 
+rno = 18 ht=179 wt = 88 

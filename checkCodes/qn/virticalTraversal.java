@@ -100,6 +100,31 @@
         }
 
     }
+    public static void virticalTraversal(Node root){
+        int coor[] = new int[2];
+        width(root,0,coor);
+        ArrayList<Integer> ans[] = new ArrayList[coor[1]-coor[0]];
+        for(int i = 0; i < ans.length; i++){
+            ans[i] = new ArrayList<>();
+        }
+        LinkedList<pair> que = new LinkedList<>();
+        que.add(new pair(root,-coor[0]));
+        while(que.size() != 0){
+            int size = que.size();
+            while(size-- > 0){
+                pair vtx = que.remove();
+                ans[vtx.val].add(vtx.node.data);
+                if(vtx.node.left != null) que.add(new pair(vtx.node.left, vtx.val-1));
+                if(vtx.node.right != null) que.add(new pair(vtx.node.right, vtx.val+1));
+            }
+        }
+        for(int i = 0; i < ans.length; i++){
+            System.out.println(ans[i]);
+        }
+
+    }
+    
+    //==========================================virticalTraversal_2===========================================================
     public static void virticalTraversal_2(Node root){
         int coor[] = new int[2];
         width(root,0,coor);
@@ -130,7 +155,8 @@
         Node root = construct(arr);
         //callDiagonalView(root);
         //virticalTraversal(root);
-        virticalTraversal_2(root);
+       // virticalTraversal_2(root);
+       topView(root);
     }
 
     public static void main(String[] args){
