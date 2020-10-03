@@ -48,7 +48,8 @@ void recoverTree(TreeNode *root)
     }
 }
 
-//510
+//510 inorder successor in bst solution with comparision of data
+
 Node *inorderSuccessor(Node *node)
 {
 
@@ -72,6 +73,8 @@ Node *inorderSuccessor(Node *node)
 
     return curr->parent != nullptr ? curr->parent : nullptr;
 }
+
+//510 inorder successor in bst solution with  comparision of node
 
 Node *inorderSuccessor(Node *node)
 {
@@ -118,7 +121,8 @@ TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 }
 
 //Leetcode 173
-class BSTIterator{
+class BSTIterator
+{
 public:
     stack<TreeNode *> st;
     BSTIterator(TreeNode *root)
@@ -152,7 +156,8 @@ public:
 
 class Solution
 {
-    int getHeight(TreeNode *node){
+    int getHeight(TreeNode *node)
+    {
         return node == nullptr ? -1 : max(getHeight(node->left), getHeight(node->right)) + 1;
     }
 
@@ -197,7 +202,7 @@ class Solution
             {
                 return rightRotation(node);
             }
-            else // lr
+            else // lr 
             {
                 node->left = leftRotation(node->left);
                 return rightRotation(node);
@@ -232,51 +237,45 @@ public:
     }
 };
 
-
 // Leetcode BSTree from pre order
 int idx = 0;
-TreeNode* buildTree(vector<int>& arr,int lrange,int rrange){
-    if(idx >= arr.size() || arr[idx] < lrange || arr[idx] > rrange) return nullptr;
+TreeNode *buildTree(vector<int> &arr, int lrange, int rrange)
+{
+    if (idx >= arr.size() || arr[idx] < lrange || arr[idx] > rrange)
+        return nullptr;
 
     int data = arr[idx++];
-    TreeNode* node = new TreeNode(data);
-    
-    node->left = buildTree(arr,lrange,data);
-    node->right = buildTree(arr,data,rrange);
+    TreeNode *node = new TreeNode(data);
+
+    node->left = buildTree(arr, lrange, data);
+    node->right = buildTree(arr, data, rrange);
 
     return node;
 }
 
-// BSTree from post order(h.w)
-class GFG
-{
-    int n ;
-    GFG(int n){
-        this.n = n;
-    }
-   public static Node constructTree(int post[],int n)
-    {
-        return buildTree(post,-(int)1e8, (int)1e8,new int[]{n-1});
-    }
-    
-    public static Node buildTree(int[] post, int lr, int rr, int[] idx){
-        if(idx[0] < 0 || post[idx[0]] < lr  ) return null;
-        
-        int ele = post[idx[0]--];
-        Node node = new Node(ele);
-        
-        
-        node.right = buildTree(post, ele, rr, idx);
-        node.left = buildTree(post, lr, ele, idx);
-        return node;
-        
-    } 
-}
-
+// BSTree from post order
 // BSTree from Level order
 
+//230 kth smallest element using iteration t: o(n) and s: o(log(n))
+// 
+void addAllLeft(TreeNode *node, stack<TreeNode *> &st)
+{
+    while (node != nullptr)
+    {
+        st.push(node);
+        node = node->left;
+    }
+}
+int kthSmallest(TreeNode *root, int k)
+{
+    stack<TreeNode *> st;
+    addAllLeft(root, st);
 
-
-
-
-
+    while (--k > 0)
+    {
+        TreeNode *rn = st.top();
+        st.pop();
+        addAllLeft(rn->right, st);
+    }
+    return st.top()->val;
+}
