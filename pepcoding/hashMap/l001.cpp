@@ -23,7 +23,7 @@ void freqMap(string str)
     }
 }
 
-void freqMap_pos(string str)
+void freqMap_pos(string str) 
 {
     unordered_map<char, vector<int>> map;
 

@@ -6,7 +6,7 @@ public class question{
     
     List<List<Integer>> res = new ArrayList<>(); 
     List<Integer> smallAns = new ArrayList<>();
-
+    // leetcode 47
     public void permuteUnique(int[] nums,int count,boolean[] vis) {
         if(count == nums.length){
             ArrayList<Integer> smallRes = new ArrayList<>(smallAns);
@@ -31,6 +31,7 @@ public class question{
         }
     }
 
+    // leetcode 47
     public void permuteUnique_02(int[] nums,int count,boolean[] vis) {
         if(count == nums.length){
             ArrayList<Integer> smallRes = new ArrayList<>(smallAns);
