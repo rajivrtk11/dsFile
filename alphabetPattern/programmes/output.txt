@@ -1,0 +1,10 @@
+num is0
+num is1
+num is2
+num is3
+num is4
+num is5
+num is6
+num is7
+num is8
+num is9
