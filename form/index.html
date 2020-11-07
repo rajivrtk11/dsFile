@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="title">
+        <textarea name="Text1" placeholder="Untitled form"></textarea>
+        <hr>
+        <input type="text" placeholder="Form Description">
+        <hr>
+    </div>
+
+    <!-- for question short answer -->
+    <div class="question">
+        <div id="qn">
+            <div>
+                <input type="text" placeholder="Enter your question" id="qn1">        
+            </div>
+            <div>
+                <input type="file" style="" id="file" value="" title="">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+            </div>
+            <div>
+              <select id="select_qn">
+                    <option value='1'>short paragraph</option>
+                    <option value='2'>Paragraph</option>
+                    <option value='3'>Mulitple choice</option>
+                    <option value='4'>Check Box</option>
+                    <option value='5'>Drop Down</option>
+                    <option value='6'>File Upload</option>
+            </select>  
+            </div>
+            
+        </div>
+        <hr>
+        
+        <input type="text" placeholder="write your answer" id="qn1">
+        <hr>
+
+    </div>
+
+    <!-- for long question -->
+    <div class="question">
+        <div id="qn">
+            <div>
+                <input type="text" placeholder="Enter your question" id="qn1">        
+            </div>
+            <div>
+                <input type="file" style="" id="file" value="" title="">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+            </div>
+            
+        </div>
+        <hr>
+        
+        <textarea name="Text1" placeholder="Enter your answer"></textarea>
+        <hr>
+
+    </div>
+    
+    <!-- for  -->
+    <!-- <p id = "par"> hi how are you and its a great pleasure to be here</p>
+
+    <select name='numbers' id='numbers'>
+        <option value='1' selected='selected'>One</option>
+        <option value='2'>two</option>
+        <option value='3'>three</option>
+        <option value='4'>four</option>
+      </select>
+      
+      <script>
+        $('#numbers').change(function () { 
+          if ($(this).val() === '1'){
+            alert("value 1 is selected");
+          }
+          else if ($(this).val() === '2'){
+            alert("value 2 is selected");
+          }
+          
+      }); -->
+
+      
+      </script>
+</body>
+
+
+<script>
+    $(document).ready(function(){
+
+        // var set;
+        $('#select_qn').change(function(){
+
+            if($(this).val() === '1'){
+                set = '1';
+                alert("short Question is selected");
+                // var ele  = document.createElement("div");
+                // ele.innerHTML = "<textarea name="Text1" placeholder="Enter your answer"></textarea>";
+                // $('body').append(ele);
+
+            }else if($(this).val() === '2'){
+                set = '2';
+                alert("long question is selected");
+            }else if($(this).val() === '3'){
+                set = '3';
+                alert("Multi choice question is selected");
+            }else if($(this).val() === '4'){
+                set = '4';
+                alert("drop down is selected");
+            } 
+      }); 
+        
+
+    });
+</script>
+</html>

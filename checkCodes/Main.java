@@ -183,6 +183,123 @@
         int rh = size(node.right);
         return lh+rh+1;
     }
+    // check how '||' works
+
+    public static void or(){
+        boolean val = false || true;
+        System.out.println(val);
+    }
+    // sum of n natural number
+    public static int sum(int n){
+        int sum = 0;
+        for(int i = 1; i <= n; i++){
+            sum += i;
+        }
+        return sum;
+    }
+    // n queen combination
+    public static int nQueenCombination(boolean[] box,int idx, int qpsf, int tnq, String ans){
+        if(tnq == qpsf){
+            System.out.println(ans);
+            return 1;
+        }
+        int count = 0;
+        for(int i = idx; i < box.length; i++){
+            count += nQueenCombination(box, i+1, qpsf+1, tnq, ans+"b"+i+"Q"+qpsf+" " );
+        }
+        return count;
+    }
+    // n queen permutation
+
+    public static int nQueenPermutation(boolean[] box,int idx, int qpsf, int tnq, String ans){
+        if(tnq == qpsf){
+            System.out.println(ans);
+            return 1;
+        }
+        int count = 0;
+        for(int i = 0; i < box.length; i++){
+            if(!box[i]){
+                box[i] = true;
+                count += nQueenPermutation(box, i+1, qpsf+1, tnq, ans+"b"+i+"Q"+qpsf+" " );
+                box[i] = false;
+            }
+        }
+        return count;
+    }
+    // queen combnation in 2d
+    public static int nQueenCombination2d(boolean[][] box, int idx, int qpsf, int tnq, String ans){
+        if(tnq == qpsf){
+            System.out.println(ans);
+            return 1;
+        }
+
+        int count = 0;
+        int n = box.length;
+        for(int i = idx; i < n*n; i++){
+            int r = i/n;
+            int c = i % n;
+            count += nQueenCombination2d(box, i+1, qpsf+1, tnq, ans+"("+ r + ","+ c + ")");
+
+        }
+        return count;
+    }
+    // queen permutation in 2d
+    public static int nQueenPermutation2d(boolean[][] box, int idx, int qpsf, int tnq, String ans){
+        if(tnq == qpsf){
+            System.out.println(ans);
+            return 1;
+        }
+
+        int count = 0;
+        int n = box.length;
+        for(int i = 0; i < n*n; i++){
+            int r = i/n;
+            int c = i % n;
+            if(!box[r][c]){
+                box[r][c] = true;
+                count += nQueenPermutation2d(box, i+1, qpsf+1, tnq, ans+"("+ r + ","+ c + ")");
+                box[r][c] = false;
+            }
+            
+        }
+        return count;
+    }
+    public static boolean isSafe(boolean box[][], int r, int c){
+        int dirA[][] = {{0,-1},{-1,0},{-1,-1},{-1,1}};
+        for(int i = 0; i < dirA.length; i++){
+            for(int rad = 1; rad <= box.length; rad++){
+                int x = r + rad*dirA[i][0];
+                int y = c + rad*dirA[i][1];
+                if(x >= 0 && y >= 0 && x < box.length && y < box[0].length ){
+                    if(box[x][y]) return false;
+                    else break;
+                }
+            }
+            
+        }
+        return true;
+    }
+    public static int nQueen(boolean[][] box, int idx, int qpsf, int tnq, String ans){
+        if(tnq == qpsf){
+            System.out.println(ans);
+            return 1;
+        }
+
+        int count = 0;
+        int n = box.length;
+        for(int i = idx; i < n*n; i++){
+            int r = i/n;
+            int c = i % n;
+            if(isSafe(box, r,c)){
+                box[r][c] = true;
+                 count += nQueen(box, i+1, qpsf+1, tnq, ans+"("+ r + ","+ c + ")");
+                box[r][c] = false;
+            }
+           
+
+        }
+        return count;
+    }
 
     public static void solve(){
         int[] arr={10,20,40,80,-1,-1,90,100,-1,-1,-1,50,-1,-1,30,60,110,120,-1,-1,140,-1,-1,-1,70,-1,-1};
@@ -193,8 +310,18 @@
         //virticalTraversal_2(root);
         //topView(root);
         //virTrav(root);
-        System.out.println(size(root));
+        //System.out.println(size(root));
+        //or();
+        // int n = sum(10);
+        // System.out.println(n);
+       // nQueenCombination(new boolean[4], 0, 0, 3, " " );
+        //nQueenPermutation(new boolean[4], 0, 0, 3, " " );
+       //nQueenCombination2d(new boolean[4][4], 0, 0,4, ""); 
+       //nQueenPermutation2d(new boolean[4][4], 0, 0,4, "");
+       nQueen(new boolean[4][4], 0, 0,4, ""); 
     }
+
+    
 
     public static void main(String[] args){
         
