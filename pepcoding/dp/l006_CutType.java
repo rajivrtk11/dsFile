@@ -73,7 +73,7 @@ public class l006_CutType{
                 dp[si][ei] = minCost;
             }
         }
-        
+ 
         System.out.println(sdp[SI][EI]);
         return dp[SI][EI];
     }

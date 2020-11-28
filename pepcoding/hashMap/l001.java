@@ -216,7 +216,8 @@ public class l001{
     }
 
     //Leetcode 295.=============================================
-
+    // median is middle value in sorted array or list
+    
     class MedianFinder {
          
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

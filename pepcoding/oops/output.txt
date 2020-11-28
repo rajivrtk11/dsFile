@@ -1,0 +1,4 @@
+A[10]says hi
+B[20]says hi
+A[30]says hi
+A[30]says hi

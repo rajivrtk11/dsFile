@@ -392,7 +392,7 @@ public class l002_StringSet{
 
     // Leetcode 44
     public int isMatch(String s, String p,int n,int m,int[][] dp) {
-        if(n == 0 || m == 0){
+        if(n == 0 || m == 0){   // -1 = not resolved, 0 = false , 1 = true;
             if(n==0 && m == 0) return dp[n][m] = 1;
             else if(m == 1 && p.charAt(m-1) == '*') return dp[n][m] = 1;
             return dp[n][m]  = 0;
