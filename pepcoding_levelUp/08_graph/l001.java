@@ -262,14 +262,14 @@ public class l001{
             }
             level++;
         }
-    }
+    }+
 
     //AP.========================================================================
     static int[] low = new int[N];
     static int[] disc = new int[N];
     static boolean[] AP = new boolean[N];
     static boolean[] vis = new boolean[N];
-    static int time = 0;
+    static int time = 0; 
     static int rootCalls = 0;
 
     public static void dfs_APB(int src,int par){
@@ -285,7 +285,7 @@ public class l001{
                 if(disc[src] <= low[e.v]) AP[src] = true;
                 if(disc[src] < low[e.v]) System.out.println("AE : " + src + " - " + e.v);
                 
-                low[src] = Math.min(low[src],low[e.v]);
+                low[src] = Math.min(low[src],low[e.v]); // e.v is nbr 
             }else if(e.v != par)
                 low[src] = Math.min(low[src],disc[e.v]);
         }

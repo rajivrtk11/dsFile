@@ -74,7 +74,7 @@ public class l001{
         if(arr[idx]==data) return idx;
         return fisrtIndex(arr,idx+1,data);
     }
-    
+     
     public static int lastIndex(int[] arr,int idx,int data){
         if(idx==arr.length) return -1;
         
