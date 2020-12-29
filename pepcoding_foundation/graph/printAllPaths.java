@@ -22,7 +22,7 @@ public class Main {
       for (int i = 0; i < vtces; i++) {
          graph[i] = new ArrayList<>();
       }
- 
+
       int edges = Integer.parseInt(br.readLine());
       for (int i = 0; i < edges; i++) {
          String[] parts = br.readLine().split(" ");

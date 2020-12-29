@@ -18,7 +18,7 @@ void downHeapify(vector<int> &arr,int pi, bool isMax,int n)
     int rci = 2 * pi + 2;
 
     if (lci <= n && compareTo(arr,isMax,lci, maxidx))
-        maxidx = lci;
+        maxidx = lci; 
     if (rci <= n && compareTo(arr,isMax,rci, maxidx))
         maxidx = rci;
 
