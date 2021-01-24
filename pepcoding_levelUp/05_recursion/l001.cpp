@@ -24,6 +24,7 @@ vector<string> subsequence(string &str, int idx)
     return myAns;
 }
 
+// 78 leetcode
 int encoding(string &str, int idx, string ans)
 {
     if (idx == str.length())

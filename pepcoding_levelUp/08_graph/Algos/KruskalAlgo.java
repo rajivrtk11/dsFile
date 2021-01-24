@@ -53,7 +53,7 @@ public class KruskalAlgo{
             par[p2] = p1;
             size[p1] += size[p2];
         }
-    }
+    } 
 
     // edges: {{u,v,w},.......}
     public static void UnionFind(int NoOfVertex,int[][] edges){

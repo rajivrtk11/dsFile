@@ -1,0 +1,9 @@
+
+This problem can be thought of as a graph problem. The first step is to determine the number of countries represente. This can be done using a depth first search. Everyone from a country is part of the same connected component. After creating the components, use combinatorics to determine the number of ways a pair can be formed.
+
+Let us assume that component i contains Mi people. To get number of ways to select two persons from different components, we subtract the number of ways of selecting two persons from the same component from the total numbers of ways of selecting two persons, i.e.
+
+Ways = N choose 2 - (∑(Mi Choose 2) for i = 1 to M)
+
+Problem Setter's code:
+
